@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BasMan Technology | RPA & Consulting Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {box-sizing: border-box; margin:0; padding:0;}
+    body { font-family: 'Poppins', sans-serif; background: #f5f7fb; color: #222; line-height: 1.6; }
+
+    /* Header */
+    header { background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; padding: 15px 40px; position: sticky; top: 0; z-index: 1000; }
+    header img {height: 100px;}
+    nav a {margin: 0 15px; text-decoration: none; color: #333; font-weight: 600; transition: color 0.3s;}
+    nav a:hover {color: #007bff;}
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #007bff, #00b4ff, #00ffc3);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite, fadeIn 1.2s ease-in;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      width: 100%;
+      padding: 0 40px;
+    }
+    .hero h1 {font-size: 48px; font-weight: 700; margin-bottom: 20px;}
+    .hero p {font-size: 20px; margin-bottom: 40px;}
+    .hero a {
+      background: white;
+      color: #007bff;
+      padding: 14px 36px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0,123,255,0.3);
+    }
+    .hero a:hover {
+      background: #007bff;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,123,255,0.4);
+    }
+    @keyframes gradientAnimation {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
+    @keyframes fadeIn {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
+
+    /* Sections Full Width */
+    section {
+      padding: 80px 40px;
+      width: 100%;
+      margin: 0;
+      max-width: none;
+    }
+    h2 {text-align: center; color: #007bff; font-size: 32px; margin-bottom: 50px;}
+    section p {text-align: center; width: 100%; margin: 0 auto 20px;}
+
+    /* Cards & Founders & Videos */
+    .services, .projects, .founders, .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .card, .founder, .video {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .card.visible, .founder.visible, .video.visible { opacity: 1; transform: translateY(0); }
+    .card:hover, .founder:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+    .card i { font-size: 40px; color: #007bff; margin-bottom: 15px; background: linear-gradient(45deg,#007bff,#00b4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: transform 0.3s; }
+    .card:hover i { transform: rotate(15deg) scale(1.2); }
+
+    .videos .video iframe {width: 100%; height: 200px; border-radius: 8px; margin-bottom: 15px;}
+    .video h3 {color: #007bff; font-size: 18px; margin-bottom: 8px;}
+    .video p {font-size: 14px; color: #555;}
+
+    .founder img {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid #007bff; background: linear-gradient(135deg, #007bff, #00b4ff); padding: 4px; transition: transform 0.3s;}
+    .founder:hover img {transform: scale(1.05);}
+    .founder h3 {margin-top: 10px; color: #007bff; font-size: 20px;}
+    .founder p {font-size: 14px; color: #555; margin: 5px 0;}
+    .socials a {display:inline-block; margin:0 8px; font-size:18px; color:#007bff; transition: color 0.3s, transform 0.3s;}
+    .socials a:hover {color:#00ffc3; transform: scale(1.3);}
+
+    @media (max-width: 600px) {
+      .founder img {width: 120px; height: 120px;}
+      .founder h3 {font-size: 18px;}
+    }
+
+    form {max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);}
+    input, textarea {width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px;}
+    button {background: #007bff; color: white; border: none; padding: 12px 30px; border-radius: 30px; font-size: 16px; cursor: pointer; transition: background 0.3s;}
+    button:hover {background: #0056b3;}
+
+    footer {background: #222; color: white; text-align: center; padding: 25px;}
+    footer a {color: #00b4ff; text-decoration: none;}
+
+    html {scroll-behavior: smooth;}
+
+    /* Floating Logo */
+    #floating-logo {position: absolute; top: 20px; left: 20px; width: 200px; z-index: 2000; box-shadow: 0 0 20px #007bff; border-radius: 20px; transition: transform 0.3s, box-shadow 0.3s; cursor: grab; animation: float 3s ease-in-out infinite;}
+    #floating-logo:hover {transform: scale(1.1); box-shadow: 0 0 30px #00b4ff;}
+    @keyframes float {0%,100% {transform: translateY(0);} 50% {transform: translateY(-10px);}}
+  </style>
+</head>
+<body>
+
+  <!-- Floating Logo -->
+  <img id="floating-logo" src="logo.png" alt="BasMan Technology Logo">
+
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="BasMan Technology Logo">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#demos">Demos</a>
+      <a href="#founders">Founders</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Empowering Businesses with Intelligent Automation</h1>
+    <p>
+      BasMan Technology is a forward-thinking technology solutions company delivering 
+      Robotic Process Automation (RPA), IT consulting, and custom technology services 
+      to streamline business processes, increase efficiency, and drive measurable results.
+    </p>
+    <a href="#contact">Get in Touch</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      BasMan Technology is dedicated to helping businesses embrace digital transformation. 
+      We specialize in <strong>Robotic Process Automation (RPA)</strong>, 
+      <strong>IT consulting</strong>, and <strong>custom technology services</strong> 
+      that simplify complex processes, increase efficiency, and drive measurable results.
+    </p>
+    <p>
+      Our team of experts combines deep industry knowledge with cutting-edge technologies 
+      to deliver solutions that are scalable, secure, and future-ready. From automating 
+      routine business tasks to implementing advanced cloud solutions and providing 
+      strategic consulting, we empower organizations to achieve operational excellence 
+      and innovation.
+    </p>
+    <p>
+      With a client-centric approach, BasMan Technology ensures every solution aligns 
+      with your organization’s vision, creating lasting value and measurable ROI.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <i class="fa-solid fa-robot"></i>
+        <h3>Robotic Process Automation (RPA)</h3>
+        <p>Automate repetitive processes to improve efficiency and accuracy with our expert-designed bots.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-briefcase"></i>
+        <h3>Consulting</h3>
+        <p>Strategic consulting services to help organizations transition smoothly into digital-first operations.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>Technology Services</h3>
+        <p>Cloud integration, data analytics, and custom software solutions for scalable business transformation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Our Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Financial Automation</h3>
+        <p>Automated invoice processing and reconciliation, saving 70% processing time for a leading finance client.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-hospital"></i>
+        <h3>Healthcare Optimization</h3>
+        <p>Developed RPA bots for patient record updates and billing systems, improving accuracy and reducing workload.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-store"></i>
+        <h3>Retail Inventory Management</h3>
+        <p>Implemented automation for real-time stock monitoring, cutting manual work by 60%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Videos -->
+  <section id="demos">
+    <h2>Demo Videos</h2>
+    <div class="videos">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="RPA Automation Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <h3>RPA Automation in Action</h3>
+        <p>Watch how our intelligent bots streamline invoice processing and save time.</p>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Consulting Excellence Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <h3>Consulting for Digital Transformation</h3>
+        <p>See how our consulting solutions empower organizations to achieve efficiency.</p>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Tech Services Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <h3>Technology Services Showcase</h3>
+        <p>Discover our advanced cloud and software automation implementations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders -->
+  <section id="founders">
+    <h2>Founders</h2>
+    <div class="founders">
+      <div class="founder">
+        <img src="rakesh.jpeg" alt="Rakesh Basavaraj">
+        <h3>Rakesh Basavaraj</h3>
+        <p><strong>Founder & CEO</strong></p>
+        <p>Master in Computing Technology and Virtualization</p>
+        <p>Leads innovation and strategy, driving BasMan Technology’s mission to automate and transform enterprises through cutting-edge RPA, consulting, and IT services.</p>
+        <div class="socials">
+          <a href="mailto:rakesh.basavaraj@basmantech.com"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/rakesh-basavaraj" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="founder">
+        <img src="bhanupriya.jpeg" alt="BhanuPriya">
+        <h3>BhanuPriya</h3>
+        <p><strong>Co-Founder & Head of Operations</strong></p>
+        <p>Bachelor of Science (B.Sc.) in Computer Science</p>
+        <p>BhanuPriya brings expertise in operations and technology management, leading initiatives that drive digital transformation, automation, and innovative IT solutions.</p>
+        <div class="socials">
+          <a href="mailto:bhanupriya@basmantech.com"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/bhanupriya" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Careers -->
+  <section id="careers">
+    <h2>Careers</h2>
+    <p>Join a passionate team shaping the future of automation and digital transformation. We’re always looking for innovators in RPA, consulting, and software engineering.</p>
+    <p>📧 <a href="mailto:careers@basmantech.com">careers@basmantech.com</a></p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:30px;">
+      📞 +91 81974 18976<br>
+      ✉️ <a href="mailto:info@basmantech.com">info@basmantech.com</a><br>
+      Rakesh Basavaraj — <a href="mailto:rakesh.basavaraj@basmantech.com">rakesh.basavaraj@basmantech.com</a><br>
+      BhanuPriya — <a href="mailto:bhanupriya@basmantech.com">bhanupriya@basmantech.com</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 BasMan Technology | Designed with ❤️ for Innovation</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Floating logo drag
+    const logo = document.getElementById('floating-logo');
+    let isDragging = false, offsetX, offsetY;
+    logo.addEventListener('mousedown', e => {isDragging = true; offsetX = e.offsetX; offsetY = e.offsetY; logo.style.cursor='grabbing';});
+    document.addEventListener('mousemove', e => {if(isDragging){logo.style.left=(e.pageX-offsetX)+'px';logo.style.top=(e.pageY-offsetY)+'px';}});
+    document.addEventListener('mouseup', ()=>{isDragging=false; logo.style.cursor='grab';});
+
+    // Scroll reveal animation
+    const elements = document.querySelectorAll('.card, .founder, .video');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {if(entry.isIntersecting) entry.target.classList.add('visible');});
+    }, {threshold: 0.2});
+    elements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
