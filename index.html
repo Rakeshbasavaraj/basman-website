@@ -52,36 +52,27 @@
       box-shadow: 0 12px 25px rgba(0,123,255,0.4);
     }
     @keyframes gradientAnimation {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
-    @keyframes fadeIn {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
+    @keyframes fadeIn {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
 
-    /* Sections Full Width */
-    section {
-      padding: 80px 40px;
-      width: 100%;
-      margin: 0;
-      max-width: none;
-    }
+    /* Sections */
+    section { padding: 80px 40px; width: 100%; margin: 0; max-width: none; }
     h2 {text-align: center; color: #007bff; font-size: 32px; margin-bottom: 50px;}
     section p {text-align: center; width: 100%; margin: 0 auto 20px;}
 
-    /* Cards & Founders & Videos */
+    /* Cards, Founders, Videos */
     .services, .projects, .founders, .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .card, .founder, .video {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      text-align: center;
+      background: white; border-radius: 10px; padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08); text-align: center;
       transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 0; transform: translateY(20px);
     }
     .card.visible, .founder.visible, .video.visible { opacity: 1; transform: translateY(0); }
     .card:hover, .founder:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
     .card i { font-size: 40px; color: #007bff; margin-bottom: 15px; background: linear-gradient(45deg,#007bff,#00b4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: transform 0.3s; }
     .card:hover i { transform: rotate(15deg) scale(1.2); }
 
-    .videos .video iframe {width: 100%; height: 200px; border-radius: 8px; margin-bottom: 15px;}
+    .videos .video video {width: 100%; height: 200px; border-radius: 8px; margin-bottom: 15px;}
     .video h3 {color: #007bff; font-size: 18px; margin-bottom: 8px;}
     .video p {font-size: 14px; color: #555;}
 
@@ -91,11 +82,6 @@
     .founder p {font-size: 14px; color: #555; margin: 5px 0;}
     .socials a {display:inline-block; margin:0 8px; font-size:18px; color:#007bff; transition: color 0.3s, transform 0.3s;}
     .socials a:hover {color:#00ffc3; transform: scale(1.3);}
-
-    @media (max-width: 600px) {
-      .founder img {width: 120px; height: 120px;}
-      .founder h3 {font-size: 18px;}
-    }
 
     form {max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);}
     input, textarea {width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px;}
@@ -110,7 +96,7 @@
     /* Floating Logo */
     #floating-logo {position: absolute; top: 20px; left: 20px; width: 200px; z-index: 2000; box-shadow: 0 0 20px #007bff; border-radius: 20px; transition: transform 0.3s, box-shadow 0.3s; cursor: grab; animation: float 3s ease-in-out infinite;}
     #floating-logo:hover {transform: scale(1.1); box-shadow: 0 0 30px #00b4ff;}
-    @keyframes float {0%,100% {transform: translateY(0);} 50% {transform: translateY(-10px);}}
+    @keyframes float {0%,100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
   </style>
 </head>
 <body>
@@ -135,34 +121,14 @@
   <!-- Hero -->
   <section class="hero">
     <h1>Empowering Businesses with Intelligent Automation</h1>
-    <p>
-      BasMan Technology is a forward-thinking technology solutions company delivering 
-      Robotic Process Automation (RPA), IT consulting, and custom technology services 
-      to streamline business processes, increase efficiency, and drive measurable results.
-    </p>
+    <p>BasMan Technology is a forward-thinking technology solutions company delivering Robotic Process Automation (RPA), IT consulting, and custom technology services to streamline business processes, increase efficiency, and drive measurable results.</p>
     <a href="#contact">Get in Touch</a>
   </section>
 
   <!-- About -->
   <section id="about">
     <h2>About Us</h2>
-    <p>
-      BasMan Technology is dedicated to helping businesses embrace digital transformation. 
-      We specialize in <strong>Robotic Process Automation (RPA)</strong>, 
-      <strong>IT consulting</strong>, and <strong>custom technology services</strong> 
-      that simplify complex processes, increase efficiency, and drive measurable results.
-    </p>
-    <p>
-      Our team of experts combines deep industry knowledge with cutting-edge technologies 
-      to deliver solutions that are scalable, secure, and future-ready. From automating 
-      routine business tasks to implementing advanced cloud solutions and providing 
-      strategic consulting, we empower organizations to achieve operational excellence 
-      and innovation.
-    </p>
-    <p>
-      With a client-centric approach, BasMan Technology ensures every solution aligns 
-      with your organization’s vision, creating lasting value and measurable ROI.
-    </p>
+    <p>BasMan Technology is dedicated to helping businesses embrace digital transformation...</p>
   </section>
 
   <!-- Services -->
@@ -214,17 +180,26 @@
     <h2>Demo Videos</h2>
     <div class="videos">
       <div class="video">
-        <iframe src="Demo1.mp4" title="RPA Automation Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <video controls>
+          <source src="Demo1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
         <h3>RPA Automation in Action</h3>
         <p>Watch how our intelligent bots streamline invoice processing and save time.</p>
       </div>
       <div class="video">
-        <iframe src="Demo1.mp4" title="Consulting Excellence Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <video controls>
+          <source src="Demo1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
         <h3>Consulting for Digital Transformation</h3>
         <p>See how our consulting solutions empower organizations to achieve efficiency.</p>
       </div>
       <div class="video">
-        <iframe src="Demo1.mp4" title="Tech Services Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <video controls>
+          <source src="Demo1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
         <h3>Technology Services Showcase</h3>
         <p>Discover our advanced cloud and software automation implementations.</p>
       </div>
@@ -239,23 +214,11 @@
         <img src="rakesh.jpeg" alt="Rakesh Basavaraj">
         <h3>Rakesh Basavaraj</h3>
         <p><strong>Founder & CEO</strong></p>
-        <p>Master in Computing Technology and Virtualization</p>
-        <p>Leads innovation and strategy, driving BasMan Technology’s mission to automate and transform enterprises through cutting-edge RPA, consulting, and IT services.</p>
-        <div class="socials">
-          <a href="mailto:rakesh.basavaraj@basmantech.com"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://www.linkedin.com/in/rakesh-basavaraj" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
       </div>
       <div class="founder">
         <img src="bhanupriya.jpeg" alt="BhanuPriya">
         <h3>BhanuPriya</h3>
         <p><strong>Co-Founder & Head of Operations</strong></p>
-        <p>Bachelor of Science (B.Sc.) in Computer Science</p>
-        <p>BhanuPriya brings expertise in operations and technology management, leading initiatives that drive digital transformation, automation, and innovative IT solutions.</p>
-        <div class="socials">
-          <a href="mailto:bhanupriya@basmantech.com"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://www.linkedin.com/in/bhanupriya" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
       </div>
     </div>
   </section>
@@ -263,8 +226,7 @@
   <!-- Careers -->
   <section id="careers">
     <h2>Careers</h2>
-    <p>Join a passionate team shaping the future of automation and digital transformation. We’re always looking for innovators in RPA, consulting, and software engineering.</p>
-    <p>📧 <a href="mailto:careers@basmantech.com">careers@basmantech.com</a></p>
+    <p>Join a passionate team shaping the future of automation and digital transformation.</p>
   </section>
 
   <!-- Contact -->
@@ -276,12 +238,6 @@
       <textarea rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <p style="margin-top:30px;">
-      📞 +91 81974 18976<br>
-      ✉️ <a href="mailto:info@basmantech.com">info@basmantech.com</a><br>
-      Rakesh Basavaraj — <a href="mailto:rakesh.basavaraj@basmantech.com">rakesh.basavaraj@basmantech.com</a><br>
-      BhanuPriya — <a href="mailto:bhanupriya@basmantech.com">bhanupriya@basmantech.com</a>
-    </p>
   </section>
 
   <!-- Footer -->
@@ -289,16 +245,13 @@
     <p>© 2025 BasMan Technology | Designed with ❤️ for Innovation</p>
   </footer>
 
-  <!-- JS -->
   <script>
-    // Floating logo drag
     const logo = document.getElementById('floating-logo');
     let isDragging = false, offsetX, offsetY;
     logo.addEventListener('mousedown', e => {isDragging = true; offsetX = e.offsetX; offsetY = e.offsetY; logo.style.cursor='grabbing';});
     document.addEventListener('mousemove', e => {if(isDragging){logo.style.left=(e.pageX-offsetX)+'px';logo.style.top=(e.pageY-offsetY)+'px';}});
     document.addEventListener('mouseup', ()=>{isDragging=false; logo.style.cursor='grab';});
 
-    // Scroll reveal animation
     const elements = document.querySelectorAll('.card, .founder, .video');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {if(entry.isIntersecting) entry.target.classList.add('visible');});
@@ -307,5 +260,3 @@
   </script>
 </body>
 </html>
-
-
